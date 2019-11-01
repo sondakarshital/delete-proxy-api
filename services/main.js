@@ -6,7 +6,6 @@ exports.base64Value = function(userName , password){
 }
 
 exports.httpReq = function(options,callback){
-    console.log("options ",options);
     var payload = "";
     if(options.payload) payload = JSON.stringify(options.payload);
     var req = https.request(options,function(resp){
@@ -40,7 +39,6 @@ exports.httpReq = function(options,callback){
         console.log('error occured',error);
         return callback(error,null);
     });
-    console.log("payload ",payload);
     req.write(payload);
     req.end();
 }
